@@ -1,0 +1,25 @@
+---
+# Header for ` install-filebeat.yml`
+- name: Install Filebeat
+  hosts: webservers
+  remote_user: azadmin
+  become: True
+
+
+  tasks:
+  - name: Download filebeat
+    command: curl -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+  - name: Installing Filebeat
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+  - name: Copy files to web servers
+    copy:
+      src: /etc/ansible/filebeat-configuration.yml
+      dest: /etc/filebeat/filebeat.yml 
+  - name: filebeat modules enabling
+    command: filebeat modules enable system
+  - name:  Setup
+    command: filebeat setup
+  - name:  
+    command: systemctl start filebeat
+
+
