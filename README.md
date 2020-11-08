@@ -6,7 +6,6 @@ https://github.com/TafariKachingwe/ccatchings/blob/master/Images/Diagram
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: En
 
 This document contains the following details:
 - Description of the Topology
@@ -24,9 +23,9 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will have high availibilty, in addition to restricting access to the network.
 - Load  What is the advantage of a jump box?_
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the fiand system _____.
-- _TODO: What does Filebeat watch for? user access of your file paths 
-- _TODO: What does Metricbeat record? the cpu data, performance, and processes. 
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file system and logfiles.
+- File beat monitors user access of your various directories 
+- Metricbeat records the cpu data, performance, and processes. 
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -52,15 +51,15 @@ Machines within the network can only be accessed by the jump box.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible| Allowed IP Addresses |
-|----------|--------------------|----------------------|
-| Jump Box | No                 | 10.0.0.1 10.0.0.2    |
-| Web-1    | No                 |                      |
-| Web-2    | No                 |                      |
-| Web-3    | No                 |                      |
-| DVWA-VM3 | No                 |                      |
-| DVWA-VM4 | No                 |                      |
-| ELK      | Yes                |                      |
+| Name     | Publicly Accessible| Allowed IP Addresses              |
+|----------|--------------------|-----------------------------------|
+| Jump Box | No                 | 172.104.3.70                      |
+| Web-1    | No                 | 10.0.0.6,100.11.68.16,10.1.0.8    |
+| Web-2    | No                 | 10.0.0.6,100.11.68.16,10.1.0.8    |
+| Web-3    | No                 | 100.11.68.16,172.104.3.70,10.1.0.4|
+| DVWA-VM3 | No                 | 100.11.68.16,172.104.3.70,10.1.0.4|
+| DVWA-VM4 | No                 | 100.11.68.16,172.104.3.70,10.1.0.4|
+| ELK      | Yes                | 100.11.68.16,172.104.3.70,10.1.0.4|
 
 ### Elk Configuration
 
